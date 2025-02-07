@@ -1,0 +1,53 @@
+name: Deploy EncryptionApi to AWS Elastic Beanstalk
+
+on:
+  push:
+    branches:
+      - main  # Ändra till din huvudbranch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Steg 1: Checkout koden
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Steg 2: Konfigurera .NET
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 9.0.x
+
+      # Steg 3: Bygg och publicera .NET-appen
+      - name: Build and publish .NET app
+        run: dotnet publish -c Release -o ./publish
+
+      # Steg 4: Installera AWS CLI
+      - name: Install AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+
+      # Steg 5: Konfigurera AWS-autentiseringsuppgifter
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      # Steg 6: Distribuera till Elastic Beanstalk
+      - name: Deploy to Elastic Beanstalk
+        run: |
+          cd ./publish
+          zip -r ../encryptionapi.zip .
+          aws elasticbeanstalk create-application-version \
+            --application-name "ESB-uppgift" \
+            --version-label "${{ github.sha }}" \
+            --source-bundle S3Bucket="elasticbeanstalk-us-east-1-123456789012",S3Key="encryptionapi.zip"
+          aws elasticbeanstalk update-environment \
+            --environment-name "ESB-uppgift-env" \
+            --version-label "${{ github.sha }}"

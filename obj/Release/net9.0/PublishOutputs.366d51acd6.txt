@@ -1,0 +1,12 @@
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\EncryptionApi.exe
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\appsettings.Development.json
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\appsettings.json
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\EncryptionApi.dll
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\EncryptionApi.deps.json
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\EncryptionApi.runtimeconfig.json
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\EncryptionApi.pdb
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\Microsoft.OpenApi.dll
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\abdal\OneDrive\Desktop\EncryptionApi\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
