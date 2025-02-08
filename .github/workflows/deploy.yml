@@ -1,7 +1,7 @@
 name: Deploy EncryptionApi to AWS Elastic Beanstalk
 
 on:
-  push: 
+  push:  
     branches:
       - main  # Ändra till din huvudbranch
 
