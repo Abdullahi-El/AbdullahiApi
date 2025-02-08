@@ -41,7 +41,7 @@ jobs:
 
       # Steg 6: Distribuera till Elastic Beanstalk
       - name: Deploy to Elastic Beanstalk
-        run: |
+        run: | 
           cd ./publish
           zip -r ../encryptionapi.zip .
           aws elasticbeanstalk create-application-version \
