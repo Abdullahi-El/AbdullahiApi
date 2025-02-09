@@ -5,7 +5,7 @@ on:
     branches:
       - main  # Ändra till din huvudbranch
 
-jobs:
+jobs: 
   deploy:
     runs-on: ubuntu-latest
 
