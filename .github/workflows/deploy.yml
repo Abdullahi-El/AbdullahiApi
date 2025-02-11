@@ -25,11 +25,14 @@ jobs:
         run: dotnet publish -c Release -o ./publish
 
       # Steg 4: Installera AWS CLI
-      - name: Install AWS CLI
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
+     # - name: Install AWS CLI
+     #   run: |
+      #    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+       #   unzip awscliv2.zip
+        #  sudo ./aws/install
+      - name: Verify AWS CLI version
+        run: aws --version
+
 
       # Steg 5: Konfigurera AWS-autentiseringsuppgifter
       - name: Configure AWS credentials
